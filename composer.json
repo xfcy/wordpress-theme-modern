@@ -1,51 +1,35 @@
 {
-  "name": "roots/sage",
-  "type": "wordpress-theme",
-  "license": "MIT",
-  "description": "WordPress starter theme with a modern development workflow",
-  "homepage": "https://roots.io/sage/",
-  "authors": [
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
+    "name": "automattic/underscores",
+    "type": "wordpress-theme",
+    "description": "Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.",
+    "keywords": [
+        "WordPress",
+        "Themes"
+    ],
+    "homepage": "https://github.com/Automattic/_s",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/Automattic/_s/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
     },
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "wptrt/wpthemereview": "^0.2.1",
+        "php-parallel-lint/php-parallel-lint": "^1.2.0",
+        "wp-cli/i18n-command": "^2.2.5"
     },
-    {
-      "name": "QWp6t",
-      "email": "hi@qwp6t.me",
-      "homepage": "https://github.com/qwp6t"
+    "scripts": {
+        "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+        "make-pot": "wp i18n make-pot . languages/_s.pot"
+    },
+    "support": {
+        "issues": "https://github.com/Automattic/_s/issues",
+        "source": "https://github.com/Automattic/_s"
     }
-  ],
-  "keywords": ["wordpress"],
-  "support": {
-    "issues": "https://github.com/roots/sage/issues",
-    "forum": "https://discourse.roots.io/"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/"
-    }
-  },
-  "require": {
-    "php": ">=7.1",
-    "composer/installers": "~1.9",
-    "illuminate/support": "5.6.*",
-    "roots/sage-lib": "~9.0.9",
-    "soberwp/controller": "~2.1.0"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "^2.8.0",
-    "roots/sage-installer": "~1.6"
-  },
-  "scripts": {
-    "test": ["phpcs"],
-    "post-create-project-cmd": [
-      "Roots\\Sage\\Installer\\ComposerScript::postCreateProject"
-    ]
-  }
 }
